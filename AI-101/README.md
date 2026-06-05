@@ -8,7 +8,7 @@ Labs for [AI-101](https://panaversity.org/courses/AI-101).
 |---|--------|-----|
 | 1 | The Agent Factory Thesis | Coming soon |
 | 2 | Getting Started Overview | Coming soon |
-| 3 | AI Prompting in 2026 | [Lab: All 13 Concepts](ai-prompting-lab.md) |
+| 3 | AI Prompting in 2026 | [Lab: All 13 Concepts](ai-prompting-in-2026/) |
 | 4 | Markdown: Writing Instructions | Coming soon |
 | 5 | Driving General Agents | Coming soon |
 | 6 | Problem Solving with General Agents | Coming soon |
