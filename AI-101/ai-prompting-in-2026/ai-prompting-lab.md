@@ -83,7 +83,8 @@ Keep it short and polite. Give me the email, ready to send.
 ```
 
 **Write it down:** What was DIFFERENT about the second answer? (2 senten
-ces)according to prompt one it shows lot of unncessary information and it was global like not specific acc to my scenerio when i gave prompt 2 it showed exact information acc to my needs
+ces)
+according to prompt one it shows lot of unncessary information and it was global like not specific acc to my scenerio when i gave prompt 2 it showed exact information acc to my needs
 
 > **Takeaway:** AI is like a smart new coworker. It only knows what you tell it.
 
