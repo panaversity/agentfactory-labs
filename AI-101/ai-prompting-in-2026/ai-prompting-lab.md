@@ -82,7 +82,9 @@ doctor's appointment. We have a friendly working relationship.
 Keep it short and polite. Give me the email, ready to send.
 ```
 
-**Write it down:** What was DIFFERENT about the second answer? (2 sentences)
+**Write it down:** What was DIFFERENT about the second answer? (2 senten
+ces)
+according to prompt one it shows lot of unncessary information and it was global like not specific acc to my scenerio when i gave prompt 2 it showed exact information acc to my needs
 
 > **Takeaway:** AI is like a smart new coworker. It only knows what you tell it.
 
@@ -131,6 +133,7 @@ If you are not sure this is current, say so instead of guessing.
 A legal/HR fact that changes over time and varies by country -- watch whether the AI gives a confident number anyway.
 
 **Write it down:** Did the AI admit when it wasn't sure, or sound confident anyway?
+yes it showed by using word assuming ,may be .i ask how u know it said by web searching.i also ask differnt question in which it clearly showed i won't guess type sentences
 
 > **Takeaway:** Always ask "How would the AI even know this?" For recent, local, or private facts, make it search or admit uncertainty.
 
@@ -187,6 +190,7 @@ reports -- not forums). Produce a structured report with:
 Words like "research thoroughly," "report," "cite sources," "use these source types" steer toward the deepest mode.
 
 **Write it down:** Which prompts made the AI actually search? How could you tell?
+mode 2 made ai acrually search because i asked it about latest recent book .also when i use research thoroughly it went into deep research
 
 > **Takeaway:** You don't click a mode -- your wording picks it. Name your sources and ask for citations to keep web answers honest.
 
@@ -227,15 +231,16 @@ What I want back: a 4-line status update, friendly tone.
 **The template (copy and fill in):**
 
 ```
-I need help with [your task].
+I need help for my toddler.he doesnt drinks milk
 Here is what you need to know:
-- [fact 1 -- a constraint, like time or budget]
-- [fact 2 -- who it's for]
-- [fact 3 -- anything the AI couldn't guess]
+- [fact 1 -- he is 2 years old never drinks milk
+- [fact 2 -- i need some alternatives
+- [fact 3 --also concerned about calcium and vitd
 What I want back: [a list / an email / 3 options / a plan].
 ```
 
 **Write it down:** Which single piece of context changed the answer the most?
+the more i clarify my situation the more detailed and detailed result it gives. when i type list it gave me list of my requirement to read it easily
 
 > **Takeaway:** Five lines of good context beats five paragraphs of clever wording. When the topic changes, start a new chat.
 
@@ -273,7 +278,8 @@ Think hard. Then tell me:
 3) under what conditions your answer flips.
 ```
 
-**Write it down:** Did "think hard" produce a deeper answer? What changed?
+**Write it down:** Did "think hard" produce a deeper answer? What changed? 
+yes when i type think hard it defined my answer in detail by comparing both and made me understad pros and cons of both to completely satisfy me
 
 > **Takeaway:** Save thinking mode for multi-trade-off questions you'd want a human to take their time on -- not quick lookups.
 
@@ -320,6 +326,7 @@ strongest arguments for each. Don't tell me which is better.
 ```
 
 **Write it down:** Did Step B give you a reason you hadn't thought of? Write one.
+step A also non biased and .step B gave me some reason to follow its answer like in evening morning exercise comparison it gave me pros of morning like hormonal health ,psychology,first birds sounds 
 
 > **Takeaway:** Verbs like find, prove, defend, confirm hand the AI your answer. Use compare, evaluate, list both sides instead.
 
@@ -379,6 +386,7 @@ add a friendly closing line, but keep it under 3 sentences.
 ```
 
 **Write it down:** Was the idea you ended with better than anything in Round 1? Why?
+yes i asked repeatedly ,also feedback like i dont agree expand your vision and it came more structured and defined.
 
 > **Takeaway:** Load context, ask for options, give feedback, repeat, expand. The value isn't the first answer; it's the loop.
 
@@ -426,6 +434,7 @@ an image tool.
 ```
 
 **Write it down:** What did the AI read correctly? What did it get wrong or flag?
+it read it correct no wrongs /redflags.
 
 > **Takeaway:** AI does the boring 90% (typing it out) so you focus on the careful 10% (checking what it flagged).
 
@@ -468,7 +477,7 @@ Make the buttons bigger and change the color theme to calm blue.
 Add a reset button.
 ```
 
-**Write it down:** Did it work first try? What did you change in the iterate step?
+**Write it down:** Did it work first try? What did you change in the iterate step?yes it worked i changed its buttons and it got changed anyway.
 
 > **Takeaway:** The skill isn't coding -- it's writing a clear brief (Goal / Input / Output) and iterating. Small one-screen tools work great.
 
@@ -491,7 +500,7 @@ and which numbers are outliers? Be specific.
 ```
 
 Did it show a code block that ran? Or just a paragraph with numbers? Note your answer.
-
+it showed paragraphs with numbers
 #### Round 2: The fix (force the code)
 
 ```
@@ -513,6 +522,7 @@ Show me the code you ran.
 ```
 
 **Write it down:** Did Round 1 run code or guess? How could you tell the difference?
+round 1 didnt showed code just paragraphs and answers.when i ask code it gave code 
 
 > **Takeaway:** Always say "write and run code, show me the code." No code block = it probably guessed.
 
@@ -543,7 +553,7 @@ list 3 things I should NEVER let you do.
 **The rule to memorize:** The safe order is always: 1) tell the task, 2) ask for a plan, 3) review & edit, 4) only then approve.
 
 **Write it down:** What's one thing you'd NEVER grant an AI app on day one?
-
+i won't allow to oerform bulk actions without review.
 > **Takeaway:** Deleted files often skip the recycle bin; edits overwrite. Scope permissions tight; grow them with track record, not trust in the brand.
 
 ---
@@ -575,7 +585,7 @@ Write a 100-word LinkedIn post announcing that I finished a
 course on AI prompting and what I learned. Friendly, not boastful.
 ```
 
-**Write it down:** Which tool did better on THIS task -- and what was different?
+**Write it down:** Which tool did better on THIS task -- and what was different? i asked chatgpt it gave me information with hour by hour recommendation also define pros which makes my mind to go exactly what it says.when i used claud for this it simply showed me what to do at this hour /where to go by this time.i will prefer chat gpt's answer.
 
 > **Takeaway:** There's no single best AI -- it's "jagged." Keep two tabs open so you always have a tiebreaker. Re-test monthly; leaders rotate.
 
@@ -608,6 +618,7 @@ Open a different-family tool. Paste the same draft and the same prompt.
 Put the two critiques side by side. Find any point only one of them caught -- that's the value of cross-checking.
 
 **Write it down:** What did Tool B catch that Tool A missed (or vice versa)?
+both gave accurate information but chatgpt stayed more clear.
 
 > **Takeaway:** Different families have different blind spots. A point one misses, the other often catches. Save this for work where being wrong is expensive.
 
