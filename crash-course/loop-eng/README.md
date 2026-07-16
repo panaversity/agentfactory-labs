@@ -11,7 +11,7 @@ A loop has a heartbeat, four working parts, and a spine. Each project below take
 | 4 | In-session loops (repeat while you watch) | [Watch the Space Station](iss-loop/) |
 | 5 | Conditional loops (run until done) | Coming soon |
 | 6 | Unattended schedules | Coming soon |
-| 7 | Event-driven loops | Coming soon |
+| 7 | Event-driven loops (react when something happens) | [The Doorbell](doorbell/) |
 
 ## Prerequisites
 
