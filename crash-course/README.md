@@ -8,7 +8,7 @@ Each project is small on purpose. It exists so you can **run one idea** and watc
 
 | Course | Projects |
 | ------ | -------- |
-| [Loop Engineering](loop-eng/) | 1 project |
+| [Loop Engineering](loop-eng/) | 2 projects |
 
 ## How to use these
 
