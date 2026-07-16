@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(iss-position)",
+      "Bash(python3 .claude/skills/iss-position/scripts/iss.py *)",
+      "WebFetch(domain:api.wheretheiss.at)"
+    ]
+  }
+}

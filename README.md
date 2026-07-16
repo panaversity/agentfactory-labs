@@ -7,6 +7,7 @@ Hands-on labs for [Panaversity](https://panaversity.org) courses. Each course ha
 | Course | Description | Labs |
 |--------|-------------|------|
 | [AI-101](AI-101/) | AI-Driven Development, Claude Code, and OpenClaw Fundamentals | 1 lab |
+| [crash-course](crash-course/) | Downloadable projects for the Getting Started crash courses in _The AI Agent Factory_ | 1 project |
 
 ## How to Use
 
