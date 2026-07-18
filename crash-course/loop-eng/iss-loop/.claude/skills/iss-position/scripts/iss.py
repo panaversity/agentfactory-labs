@@ -40,14 +40,26 @@ def hemi(value, positive, negative):
     return f"{abs(value):.1f}° {positive if value >= 0 else negative}"
 
 
-def card(d):
+def normalize(d):
+    """The reading's raw values, keyed the same way for the card and --json."""
+    return {
+        "latitude": d["latitude"],
+        "longitude": d["longitude"],
+        "altitude_km": d["altitude"],
+        "velocity_kmh": d["velocity"],
+        "visibility": d.get("visibility"),
+        "timestamp": d["timestamp"],
+    }
+
+
+def card(n):
     """The display card. Fixed width so consecutive beats line up in a loop."""
-    clock = time.strftime("%H:%M:%S UTC", time.gmtime(d["timestamp"]))
-    lat = hemi(d["latitude"], "N", "S")
-    lon = hemi(d["longitude"], "E", "W")
-    kmh = f"{d['velocity']:,.0f} km/h"
-    kms = f"{d['velocity'] / 3600:.2f} km/s"
-    lit = "in sunlight" if d.get("visibility") == "daylight" else d.get("visibility", "-")
+    clock = time.strftime("%H:%M:%S UTC", time.gmtime(n["timestamp"]))
+    lat = hemi(n["latitude"], "N", "S")
+    lon = hemi(n["longitude"], "E", "W")
+    kmh = f"{n['velocity_kmh']:,.0f} km/h"
+    kms = f"{n['velocity_kmh'] / 3600:.2f} km/s"
+    lit = "in sunlight" if n["visibility"] == "daylight" else (n["visibility"] if n["visibility"] is not None else "-")
 
     line = "─" * 58
     return "\n".join(
@@ -56,7 +68,7 @@ def card(d):
             f"  🛰  INTERNATIONAL SPACE STATION            live · {clock}",
             f"  {line}",
             f"     Position    {lat:<12} {lon}",
-            f"     Altitude    {d['altitude']:.0f} km",
+            f"     Altitude    {n['altitude_km']:.0f} km",
             f"     Speed       {kmh}   ({kms})",
             f"     Sunlight    {lit}",
             f"  {line}",
@@ -66,23 +78,11 @@ def card(d):
 
 
 def main():
-    d = fetch()
+    n = normalize(fetch())
     if "--json" in sys.argv[1:]:
-        print(
-            json.dumps(
-                {
-                    "latitude": d["latitude"],
-                    "longitude": d["longitude"],
-                    "altitude_km": d["altitude"],
-                    "velocity_kmh": d["velocity"],
-                    "visibility": d.get("visibility"),
-                    "timestamp": d["timestamp"],
-                },
-                indent=2,
-            )
-        )
+        print(json.dumps(n, indent=2))
     else:
-        print(card(d))
+        print(card(n))
 
 
 if __name__ == "__main__":
