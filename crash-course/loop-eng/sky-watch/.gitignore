@@ -1,0 +1,5 @@
+# Your own permission overrides — yours, not the project's.
+.claude/settings.local.json
+
+# Runtime artifact from a live Claude Code session.
+.claude/scheduled_tasks.lock

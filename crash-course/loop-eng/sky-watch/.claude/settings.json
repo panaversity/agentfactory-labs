@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(sky-watch)",
+      "Bash(python3 .claude/skills/sky-watch/scripts/skywatch.py *)",
+      "WebFetch(domain:api.nasa.gov)"
+    ]
+  }
+}
