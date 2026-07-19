@@ -28,6 +28,18 @@ what is coming, the single closest pass, and — first, if any — the objects N
 has flagged as potentially hazardous. The script owns the API, the date window,
 and the danger check, so none of that has to be remembered.
 
+**Match the window to how often you run.** Add `--days N` to narrow it:
+
+```bash
+python3 .claude/skills/sky-watch/scripts/skywatch.py --days 1   # today only
+```
+
+A **daily** watch should report **today** (`--days 1`) — if it sent the whole
+next seven days every morning, six of them would just repeat yesterday. Use the
+full seven-day window (the default) for a **by-hand** "what is coming this week?"
+or a **weekly** schedule. So: run daily, report today; run weekly, report the
+week.
+
 For the raw numbers to reason with, ask for JSON:
 
 ```bash

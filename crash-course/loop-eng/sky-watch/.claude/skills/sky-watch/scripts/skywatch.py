@@ -81,7 +81,8 @@ def card(rs, days):
     line = "─" * 62
     hazards = [r for r in rs if r["hazardous"]]
     closest = min(rs, key=lambda r: r["miss_km"]) if rs else None
-    head = f"  ☄  SKY WATCH — next {days} days, from {date.today()}"
+    window = "today" if days == 1 else f"next {days} days"
+    head = f"  ☄  SKY WATCH — {window}, {date.today()}"
 
     body = ["", head, f"  {line}"]
     if not rs:
@@ -102,7 +103,8 @@ def card(rs, days):
         f"{closest['speed_kmh']:,.0f} km/h"
     )
     body.append("")
-    body.append(f"     {len(rs)} close approaches total in the next {days} days.")
+    span = "today" if days == 1 else f"the next {days} days"
+    body.append(f"     {len(rs)} close approaches {span}.")
     body += [f"  {line}", ""]
     return "\n".join(body)
 
@@ -122,6 +124,7 @@ def html_card(rs, days):
     import math
 
     today = date.today()
+    win = "Today" if days == 1 else f"Next {days} days"
     hazards = [r for r in rs if r["hazardous"]]
     danger = bool(hazards)
     ordered = sorted(rs, key=lambda r: r["miss_km"])  # closest first
@@ -181,14 +184,14 @@ def html_card(rs, days):
     return f"""<!doctype html><html><body style="margin:0;background:#0a0d12;">
 <div style="max-width:600px;margin:0 auto;padding:24px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e7ecf5;">
   <div style="font-size:20px;font-weight:700;letter-spacing:.5px;">☄ SKY WATCH</div>
-  <div style="color:#8a94a6;font-size:13px;margin:2px 0 16px;">Next {days} days · from {today}</div>
+  <div style="color:#8a94a6;font-size:13px;margin:2px 0 16px;">{win} · {today}</div>
   {banner}
   <div style="display:flex;justify-content:space-between;color:#8a94a6;font-size:11px;margin:14px 0 2px;">
     <span>◀ closer (a fuller, hotter bar)</span><span>farther ▶</span>
   </div>
   <table style="width:100%;border-collapse:collapse;">{"".join(rows_html)}</table>
   <div style="margin-top:14px;color:#8a94a6;font-size:12px;">
-    Sorted closest first. Bar length is proximity, log-scaled. {len(rs)} close approaches in the next {days} days.
+    Sorted closest first. Bar length is proximity, log-scaled. {len(rs)} close approaches {"today" if days==1 else f"in the next {days} days"}.
   </div>
 </div></body></html>"""
 

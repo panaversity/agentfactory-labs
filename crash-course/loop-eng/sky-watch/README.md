@@ -102,26 +102,31 @@ Once one of these reads right by hand, you are ready to put it on a clock.
 Now the heartbeat. Take any starter prompt above and hand it to `/schedule`:
 
 ```
-/schedule every day at midnight, run the sky-watch skill and write me the forecast
+/schedule every day at midnight, run the sky-watch skill for today and write me the forecast
 ```
 
 That creates a **cloud Routine** — it runs on Anthropic's servers, so it fires
 at midnight whether your laptop is open, asleep, or in a bag. Once a day is well
 under the daily run cap.
 
-A few scheduled variants worth trying:
+**Match the window to the cadence.** Notice the prompt says _today_, not "the
+week ahead." A daily run should report the day it fires — if it re-sent the whole
+next seven days every morning, six of those days would just repeat yesterday's
+email. So: run daily, get today. If you want the full look-ahead, run it _weekly_
+instead, once:
 
 ```
-/schedule every morning at 7am, run the sky-watch skill and give me the week ahead
+/schedule every Monday at 8am, run the sky-watch skill for the week ahead
 ```
 
+One more variant, and it is the real shape of a watch:
+
 ```
-/schedule every day at 8am, run the sky-watch skill — but only message me if something is flagged hazardous
+/schedule every day at 8am, run the sky-watch skill for today — but only message me if something is flagged hazardous
 ```
 
-That second one is the real shape of a watch: silent when the sky is clear, loud
-only when it is not. It still runs every day; it just decides whether the day is
-worth your attention.
+Silent when the sky is clear, loud only when it is not. It still fires every day;
+it just decides whether the day is worth your attention.
 
 ### 3. Prove it fast, then trust it overnight
 
