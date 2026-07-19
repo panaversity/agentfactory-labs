@@ -112,14 +112,10 @@ under the daily run cap.
 **Match the window to the cadence.** Notice the prompt says _today_, not "the
 week ahead." A daily run should report the day it fires — if it re-sent the whole
 next seven days every morning, six of those days would just repeat yesterday's
-email. So: run daily, get today. If you want the full look-ahead, run it _weekly_
-instead, once:
+email. Run daily, get today. (Curious about the days beyond? Ask by hand any
+time: _"what's coming this week?"_)
 
-```
-/schedule every Monday at 8am, run the sky-watch skill for the week ahead
-```
-
-One more variant, and it is the real shape of a watch:
+One variant worth trying, because it is the real shape of a watch:
 
 ```
 /schedule every day at 8am, run the sky-watch skill for today — but only message me if something is flagged hazardous
