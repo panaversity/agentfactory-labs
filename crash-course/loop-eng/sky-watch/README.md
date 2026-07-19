@@ -15,9 +15,9 @@ The [ISS project](../iss-loop/) runs on **your** laptop and dies when you close
 the terminal. This one runs on a schedule, on someone else's machine, and keeps
 going while you sleep. That is the whole concept, in one contrast:
 
-| | You start it | It stops when |
-| --- | --- | --- |
-| In-session (`/loop`) | you type | you close the terminal |
+|                      | You start it  | It stops when                        |
+| -------------------- | ------------- | ------------------------------------ |
+| In-session (`/loop`) | you type      | you close the terminal               |
 | **Scheduled (this)** | **the clock** | **you cancel it — never on its own** |
 
 And unlike the [Doorbell](../doorbell/), which reacts _after_ a pull request
@@ -93,6 +93,30 @@ it overnight until you have watched it fire once, fast:
 That ladder — **prove it hourly and watched before you trust it nightly and
 unattended** — is the rule from Part 6 of the course, made physical.
 
+## Getting it by email (so you wake up to it)
+
+A watch you have to open a browser to read is only half a watch. The real thing
+lands in your inbox before you are awake. A Routine does this through a
+**connector** — not a script with an email password (that could never live in a
+public repo), but a channel you attach to the Routine on the web. The credentials
+stay in your Claude account; the repo stays clean.
+
+The mechanism, in four steps:
+
+1. **Connect a channel** at [`claude.ai/customize/connectors`](https://claude.ai/customize/connectors) — Gmail, or Slack.
+2. **Open your Routine** at [`claude.ai/code/routines`](https://claude.ai/code/routines). (You can create a schedule with `/schedule` in the CLI, but connectors are attached on the web — the CLI cannot do it.)
+3. **Attach the connector** to this Routine, and only this one. A connector is a permission: with no email connector attached, the Routine could not email you even if the prompt asked.
+4. **Add one line to the prompt:** _"…then email me the forecast at you@example.com, subject 'Sky Watch'."_
+
+Fire a one-off to test (`/schedule in 2 minutes, run the sky-watch skill and email me the result`) and check that it arrives.
+
+> **One honest limit.** The built-in **Gmail** connector can _draft_ but not
+> _send_ — so with Gmail, each morning's watch lands in your **Drafts** folder,
+> not your inbox. That is still delivery, just one click short. For a message that
+> truly arrives on its own, use **Slack** (it delivers), or an email connector
+> that supports sending. Check what your chosen connector can actually do before
+> you rely on it — a Routine can only use the tools its connector gives it.
+
 ## What "all clear" means, and why it is the point
 
 Most mornings, the watch will say some version of "nothing dangerous, nearest
@@ -126,9 +150,9 @@ export NASA_API_KEY=your-key-here
 
 ## What it ships
 
-| File | Job |
-| --- | --- |
-| `.claude/skills/sky-watch/` | Owns the data, the 7-day look-ahead, and the danger rule |
-| `.claude/skills/sky-watch/scripts/skywatch.py` | Fetches NASA; exits non-zero rather than inventing a sky |
-| `.claude/settings.json` | Three narrow pre-granted rules: the skill, the script, `api.nasa.gov` |
-| `CLAUDE.md` | Points at the skill |
+| File                                           | Job                                                                   |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| `.claude/skills/sky-watch/`                    | Owns the data, the 7-day look-ahead, and the danger rule              |
+| `.claude/skills/sky-watch/scripts/skywatch.py` | Fetches NASA; exits non-zero rather than inventing a sky              |
+| `.claude/settings.json`                        | Three narrow pre-granted rules: the skill, the script, `api.nasa.gov` |
+| `CLAUDE.md`                                    | Points at the skill                                                   |
