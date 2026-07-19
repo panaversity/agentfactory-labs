@@ -11,6 +11,7 @@ watch must never give.
 
 Usage:
     python3 skywatch.py            # the watch card, next 7 days
+    python3 skywatch.py --html     # a self-contained HTML card (for an email body)
     python3 skywatch.py --json     # raw rows, for computing
     python3 skywatch.py --days 3   # a shorter window
 
@@ -106,6 +107,92 @@ def card(rs, days):
     return "\n".join(body)
 
 
+def _esc(s):
+    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def html_card(rs, days):
+    """A self-contained HTML watch card — inline styles only, safe as an email body.
+
+    Each pass is a *proximity* bar: the closer the asteroid, the fuller and hotter
+    the bar, so the one worth caring about is the one that stands out. The scale is
+    logarithmic (passes run from ~10x to ~200x the Moon, and a linear bar would
+    flatten them all), and rows are sorted closest-first so the nearest pass leads.
+    """
+    import math
+
+    today = date.today()
+    hazards = [r for r in rs if r["hazardous"]]
+    danger = bool(hazards)
+    ordered = sorted(rs, key=lambda r: r["miss_km"])  # closest first
+
+    # Proximity on a log scale: 1x the Moon => full bar, 300x => empty.
+    LO, HI = 1.0, 300.0
+    lo, hi = math.log10(LO), math.log10(HI)
+
+    def band(r):
+        m = r["miss_moons"]
+        if r["hazardous"] and m < 20:
+            return "#e0533d"  # flagged AND genuinely close — the real red
+        if m < 10:
+            return "#e0863d"  # very close
+        if m < 40:
+            return "#d5b53a"  # closeish
+        return "#3a7bd5"      # comfortably far — the usual
+
+    def bar(r):
+        frac = (hi - math.log10(max(r["miss_moons"], LO))) / (hi - lo)  # 1=close, 0=far
+        pct = max(3.0, min(100.0, frac * 100.0))
+        return (
+            '<div style="background:#11151c;border-radius:5px;height:22px;margin:4px 0;'
+            'overflow:hidden;">'
+            f'<div style="height:100%;width:{pct:.1f}%;background:{band(r)};'
+            'opacity:.9;border-radius:5px;"></div></div>'
+        )
+
+    rows_html = []
+    for r in ordered[: min(len(ordered), 12)]:
+        flag = (
+            ' <span style="color:#e0533d;font-weight:600;">⚠ hazardous</span>'
+            if r["hazardous"]
+            else ""
+        )
+        rows_html.append(
+            '<tr><td style="padding:8px 10px 8px 0;vertical-align:top;white-space:nowrap;'
+            f'color:#c7cede;font-size:13px;">{_esc(r["date"])}<br>'
+            f'<span style="color:#8a94a6;">{_esc(r["name"])}</span>{flag}</td>'
+            f'<td style="padding:8px 0;width:60%;">{bar(r)}'
+            '<div style="color:#8a94a6;font-size:12px;margin-top:2px;">'
+            f'{r["miss_moons"]:.1f}× the Moon · ~{r["size_min_m"]:.0f}–{r["size_max_m"]:.0f} m'
+            "</div></td></tr>"
+        )
+
+    banner = (
+        f'<div style="background:#3a1512;border:1px solid #e0533d;color:#ffb3a6;'
+        f'padding:10px 14px;border-radius:8px;font-size:14px;">⚠ {len(hazards)} object'
+        f'{"s" if len(hazards) != 1 else ""} on NASA\'s potentially-hazardous list this '
+        "week. Check the distances below — the label is about their orbits, not this pass.</div>"
+        if danger
+        else '<div style="background:#0f2417;border:1px solid #2e7d52;color:#8fe0b0;'
+        'padding:10px 14px;border-radius:8px;font-size:14px;">✓ All clear — nothing '
+        "flagged hazardous in the window.</div>"
+    )
+
+    return f"""<!doctype html><html><body style="margin:0;background:#0a0d12;">
+<div style="max-width:600px;margin:0 auto;padding:24px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e7ecf5;">
+  <div style="font-size:20px;font-weight:700;letter-spacing:.5px;">☄ SKY WATCH</div>
+  <div style="color:#8a94a6;font-size:13px;margin:2px 0 16px;">Next {days} days · from {today}</div>
+  {banner}
+  <div style="display:flex;justify-content:space-between;color:#8a94a6;font-size:11px;margin:14px 0 2px;">
+    <span>◀ closer (a fuller, hotter bar)</span><span>farther ▶</span>
+  </div>
+  <table style="width:100%;border-collapse:collapse;">{"".join(rows_html)}</table>
+  <div style="margin-top:14px;color:#8a94a6;font-size:12px;">
+    Sorted closest first. Bar length is proximity, log-scaled. {len(rs)} close approaches in the next {days} days.
+  </div>
+</div></body></html>"""
+
+
 def main():
     args = sys.argv[1:]
     days = 7
@@ -125,6 +212,8 @@ def main():
     rs = rows(feed, days)
     if "--json" in args:
         print(json.dumps(rs, indent=2))
+    elif "--html" in args:
+        print(html_card(rs, days))
     else:
         print(card(rs, days))
 

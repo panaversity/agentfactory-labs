@@ -153,6 +153,18 @@ The mechanism, in four steps:
 
 Fire a one-off to test (`/schedule in 2 minutes, run the sky-watch skill and email me the result`) and check that it arrives.
 
+**Make it a picture, not a paragraph.** The script can render the watch as a
+self-contained HTML card — each pass drawn as a proximity bar, closest first, so
+you take in the whole sky at a glance:
+
+```bash
+python3 .claude/skills/sky-watch/scripts/skywatch.py --html > watch.html && open watch.html
+```
+
+Ask the loop to use that as the email body — _"…email me the forecast, using the
+HTML card as the body"_ — and the morning note arrives as a visual, not a wall of
+text.
+
 > **One honest limit.** The built-in **Gmail** connector can _draft_ but not
 > _send_ — so with Gmail, each morning's watch lands in your **Drafts** folder,
 > not your inbox. That is still delivery, just one click short. For a message that

@@ -34,6 +34,18 @@ For the raw numbers to reason with, ask for JSON:
 python3 .claude/skills/sky-watch/scripts/skywatch.py --json
 ```
 
+When you are emailing the watch, use the HTML card as the email body — it draws
+each pass as a proximity bar, closest first, so the reader sees the sky at a
+glance:
+
+```bash
+python3 .claude/skills/sky-watch/scripts/skywatch.py --html
+```
+
+Pass its output as the `htmlBody` of the email, and keep your one-line summary
+as the plain-text body. Do not hand-write HTML — the script's card is
+deterministic and email-safe; your job is still the framing sentence.
+
 ## Writing the watch
 
 Turn the card into **one short, forward-looking paragraph** a person can read
