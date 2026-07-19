@@ -68,9 +68,38 @@ It runs the `sky-watch` skill, calls NASA, and writes you a forward-looking
 watch — one plain paragraph, danger first or calm first. Prove it works before
 you schedule it.
 
+### More starter prompts
+
+You just ran the basic watch. Here are three more — each said the way you would
+ask a person, because the skill carries the detail so your words can stay plain:
+
+```
+is anything dangerous heading toward Earth in the next few days?
+```
+
+Same data, framed as the question you actually care about. Watch it lead with
+the danger flag if there is one — and, more often, reassure you there is not.
+
+```
+what is the single closest asteroid this week, and how does its distance compare to the Moon?
+```
+
+Pins it to one object and one comparison. "23× the Moon" is the number that
+means something; this is how you teach the loop to always translate to it.
+
+```
+give me this week's sky watch, and if anything is flagged hazardous, explain what that label actually means
+```
+
+Draws out the one nuance NASA data hides: "potentially hazardous" is about an
+object's orbit, not this particular pass. A good watch says the flag _and_ the
+real distance.
+
+Once one of these reads right by hand, you are ready to put it on a clock.
+
 ### 2. Turn it into a schedule
 
-Now the heartbeat. In Claude Code:
+Now the heartbeat. Take any starter prompt above and hand it to `/schedule`:
 
 ```
 /schedule every day at midnight, run the sky-watch skill and write me the forecast
@@ -79,6 +108,20 @@ Now the heartbeat. In Claude Code:
 That creates a **cloud Routine** — it runs on Anthropic's servers, so it fires
 at midnight whether your laptop is open, asleep, or in a bag. Once a day is well
 under the daily run cap.
+
+A few scheduled variants worth trying:
+
+```
+/schedule every morning at 7am, run the sky-watch skill and give me the week ahead
+```
+
+```
+/schedule every day at 8am, run the sky-watch skill — but only message me if something is flagged hazardous
+```
+
+That second one is the real shape of a watch: silent when the sky is clear, loud
+only when it is not. It still runs every day; it just decides whether the day is
+worth your attention.
 
 ### 3. Prove it fast, then trust it overnight
 
