@@ -2,7 +2,7 @@
 
 Projects for [Loop Engineering: A Crash Course](https://agentfactory.panaversity.org/docs/loop-engineering-crash-course).
 
-A loop has a heartbeat, four working parts, and a spine. Each project below takes **one** of those and lets you run it for real.
+A loop runs on a **heartbeat** and remembers through a **spine**. The heartbeat comes in four kinds — so these **five projects** each take one core idea of a loop (a kind of heartbeat, or the spine) and let you run it for real.
 
 ## Concepts and Projects
 
