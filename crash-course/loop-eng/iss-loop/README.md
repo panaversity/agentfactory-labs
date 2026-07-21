@@ -62,7 +62,8 @@ The folder carries the detail so your prompt does not have to:
 | ------------------------------ | --------------------------------------------------------------- |
 | `.claude/settings.json`        | Three narrow rules, pre-granted, so the loop never stops to ask |
 | `.claude/skills/iss-position/` | Owns the API, the display, and the never-guess rule             |
-| `CLAUDE.md`                    | Points at the skill                                             |
+| `AGENTS.md`                    | Points any agent at the skill/script — read by every agent      |
+| `CLAUDE.md`                    | One line — imports `AGENTS.md` so Claude Code reads it too       |
 
 ## The one thing to notice
 
