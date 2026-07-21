@@ -1,17 +1,6 @@
-# {{PROJECT_TITLE}}
-
-This project has one job: show {{ONE_LINER}}.
-
-**Any question about new {{THING}} — the latest on a topic, a {{THING}} feed — is
-answered by the `{{project-slug}}` skill, never from memory.** The skill owns the
-{{SOURCE_NAME}} fetch and, most importantly, the **spine** (`progress.md`): it reads
-the memory first to learn what was already shown, and writes it last.
-
-<!-- ── SPINE paragraph — delete this if your project is stateless (no memory) ── -->
-The one thing to hold onto: this loop has a **memory**. `progress.md` is the spine.
-Reading it first is what lets each run show only what is **new** instead of
-repeating the last list. Delete `progress.md` and the loop forgets everything —
-every item looks new again. **No spine, no loop.**
-
-If the fetch fails, say so — never invent {{THING}}. A false "here's what's new" is
-the one answer this project must never give.
+<!--
+Claude Code reads CLAUDE.md; other agents (Codex, Cursor, …) read AGENTS.md.
+This file just imports AGENTS.md so every tool shares one set of instructions.
+Edit AGENTS.md, not this file.
+-->
+@AGENTS.md

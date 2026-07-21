@@ -24,12 +24,18 @@ permissions, all wired together. You just fill in the blanks.
 
 | File | What it is |
 |---|---|
-| `CLAUDE.md` | Tells Claude the project's one job + that the skill owns the answer |
+| `AGENTS.md` | The project's one job + that the script owns the answer — **read by every agent** (Codex, Cursor, Claude Code…) |
+| `CLAUDE.md` | One line — `@AGENTS.md` — so Claude Code (which reads only `CLAUDE.md`) picks up `AGENTS.md` too |
 | `README.md` | The short "what it does / run it / how it fits the loop" page |
 | `START-HERE.md` | The step-by-step beginner walkthrough |
 | `.claude/settings.json` | Permissions: run the skill + script without a prompt every time |
 | `.claude/skills/SKILL-NAME/SKILL.md` | When to trigger + how to run the script |
 | `.claude/skills/SKILL-NAME/scripts/script.py` | The bundled, deterministic script (ships **with** a spine) |
+
+> **Cross-agent note:** `AGENTS.md` + `script.py` work for *any* coding agent — the
+> script is plain Python and every agent reads `AGENTS.md`. The `.claude/` folder
+> (skill + permissions) is just how *Claude Code* auto-runs it; other agents run the
+> script directly, following `AGENTS.md`.
 
 ## How to use it — two ways
 
@@ -71,7 +77,7 @@ already works.
 If your project just reprints "what's true right now" every run (like `sky-watch`
 listing today's asteroids), it doesn't need a spine. In `script.py`, delete the
 block marked `── SPINE ──` and the READ/WRITE steps in `main()`; keep the fetch, the
-card, and the honest-failure. In `README.md` and `CLAUDE.md`, delete the spine
+card, and the honest-failure. In `README.md` and `AGENTS.md`, delete the spine
 paragraphs (each is marked). That's the whole difference.
 
 ## Before you ship — the checklist
