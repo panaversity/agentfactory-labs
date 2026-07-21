@@ -26,20 +26,31 @@ show me what's new on arXiv about "LLM agents"
 You'll see the latest papers, newest first:
 
 ```
-  📄  FRESH ON ARXIV · "LLM agents"          first look — showing the latest
-  ────────────────────────────────────────────────────────────────
+  📄  FRESH ON ARXIV  ·  "LLM agents"
+      first look — here are the latest papers
+  ------------------------------------------------------------
    • Adaptive Adversaries: A Multi-Turn Benchmark for LLM Agent Security
-     Devina Jain, David Hartmann +1   ·   2026-07-20   ·   cs.CR
+     Devina Jain, David Hartmann +1 more   ·   2026-07-20   ·   cs.CR
      arxiv.org/abs/2607.18063
-   • ...
+   • Memory-Augmented Planning for Long-Horizon LLM Agents
+     Sara Kim, Alex Novak   ·   2026-07-20   ·   cs.AI
+     arxiv.org/abs/2607.18044
 ```
+
+**Watching your own field?** Swap `"LLM agents"` for anything you're studying:
+
+```
+"diffusion models"   ·   "reinforcement learning"   ·   "prompt injection"   ·   "retrieval augmented generation"
+```
+
+The watch follows one topic at a time — switch topics and it starts fresh on the new one.
 
 ## Now feel the spine — this is the whole lesson
 
 **Ask again, right away:**
 
 ```
-show me what's new about "LLM agents"
+show me what's new on arXiv about "LLM agents"
 ```
 
 This time it says **"nothing new since last run ✓"**. The loop *remembered* — it
@@ -54,7 +65,7 @@ cat progress.md
 
 ```
 rm progress.md
-show me what's new about "LLM agents"
+show me what's new on arXiv about "LLM agents"
 ```
 
 Every paper comes back as "new." You just made the loop forget everything.
