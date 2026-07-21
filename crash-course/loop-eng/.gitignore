@@ -1,0 +1,6 @@
+# Python bytecode from running the project scripts
+__pycache__/
+*.pyc
+
+# The spine — per-student memory each project writes at runtime, not source
+progress.md
