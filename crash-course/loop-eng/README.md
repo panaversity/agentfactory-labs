@@ -17,7 +17,3 @@ A loop has a heartbeat, four working parts, and a spine. Each project below take
 ## Prerequisites
 
 [Claude Code](https://code.claude.com) and an internet connection. The projects use live public APIs that need no key and no sign-up.
-
-## Building a new project?
-
-Start from [`_template/`](_template/) — it ships the skill, a spine-ready script, the beginner docs, and the Claude Code permissions already wired together. See [`_template/HOW-TO-USE.md`](_template/HOW-TO-USE.md).
