@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill({{project-slug}})",
+      "Bash(python3 .claude/skills/{{project-slug}}/scripts/{{scriptname}}.py *)",
+      "WebFetch(domain:{{SOURCE_DOMAIN}})"
+    ]
+  }
+}

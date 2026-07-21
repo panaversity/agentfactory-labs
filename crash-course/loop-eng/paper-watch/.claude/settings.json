@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(paper-watch)",
+      "Bash(python3 .claude/skills/paper-watch/scripts/paperwatch.py *)",
+      "WebFetch(domain:export.arxiv.org)"
+    ]
+  }
+}
