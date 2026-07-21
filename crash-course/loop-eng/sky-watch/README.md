@@ -211,4 +211,5 @@ export NASA_API_KEY=your-key-here
 | `.claude/skills/sky-watch/`                    | Owns the data, the 7-day look-ahead, and the danger rule              |
 | `.claude/skills/sky-watch/scripts/skywatch.py` | Fetches NASA; exits non-zero rather than inventing a sky              |
 | `.claude/settings.json`                        | Three narrow pre-granted rules: the skill, the script, `api.nasa.gov` |
-| `CLAUDE.md`                                    | Points at the skill                                                   |
+| `AGENTS.md`                                    | Points any agent at the skill/script — read by every agent            |
+| `CLAUDE.md`                                    | One line — imports `AGENTS.md` so Claude Code reads it too             |
